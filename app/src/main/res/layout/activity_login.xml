@@ -6,12 +6,46 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
-    <TextView
-        android:id="@+id/loginTextView"
+    <EditText
+        android:id="@+id/loginEmailIdEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:hint="@string/enter_email_id"
+        android:autofillHints="@string/enter_email_id"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="230dp"/>
+
+    <EditText
+        android:id="@+id/loginPasswordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="@string/enter_password"
+        android:autofillHints="@string/enter_password"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        android:layout_below="@+id/loginEmailIdEditText"
+        android:layout_marginTop="50dp"/>
+
+    <Button
+        android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login Activity"
+        android:layout_below="@+id/loginPasswordEditText"
+        android:layout_marginTop="50dp"
+        android:text="@string/login"
+        android:layout_centerHorizontal="true"/>
+
+    <ProgressBar
+        android:id="@+id/loginProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/loginButton"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"/>
+        android:layout_marginTop="50dp"
+        android:visibility="invisible"/>
 
 </RelativeLayout>

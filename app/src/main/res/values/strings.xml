@@ -2,4 +2,7 @@
     <string name="app_name">Health-e-Checker</string>
     <string name="login">LOGIN</string>
     <string name="register">REGISTER</string>
+    <string name="enter_email_id">Enter email-Id</string>
+    <string name="enter_password">Enter password</string>
+    <string name="logout">LOGOUT</string>
 </resources>
