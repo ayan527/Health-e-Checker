@@ -5,4 +5,5 @@
     <string name="enter_email_id">Enter email-Id</string>
     <string name="enter_password">Enter password</string>
     <string name="logout">LOGOUT</string>
+    <string name="scanner">SCANNER</string>
 </resources>

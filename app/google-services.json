@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1062863483183",
+    "firebase_url": "https://health-e-checker-app.firebaseio.com",
+    "project_id": "health-e-checker-app",
+    "storage_bucket": "health-e-checker-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1062863483183:android:04003161e7af32e5d2b1da",
+        "android_client_info": {
+          "package_name": "com.example.health_e_checkerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1062863483183-4jeufo5lojof4rob7tarailda4q8i9qf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqueY7Vjv-m8gUwFnKJx47aWoWucP5i8U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1062863483183-4jeufo5lojof4rob7tarailda4q8i9qf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
