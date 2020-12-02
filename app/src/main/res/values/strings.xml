@@ -6,5 +6,5 @@
     <string name="enter_password">Enter password</string>
     <string name="logout">LOGOUT</string>
     <string name="scanner">SCANNER</string>
-    <string name="scan_again">SCAN AGAIN</string>
+    <string name="scan_now">SCAN NOW</string>
 </resources>
