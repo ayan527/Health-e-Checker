@@ -16,19 +16,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HealtheCheckerApp">
-        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".NewProfileActivity"/>
+        <activity android:name=".ProfileActivity" />
         <activity android:name=".ScannerActivity" />
         <activity android:name=".StartActivity" />
-        <activity android:name=".LaunchActivity"></activity>
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".LaunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".MainActivity"/>
 
         <meta-data
             android:name="com.google.mlkit.vision.DEPENDENCIES"

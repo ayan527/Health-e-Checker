@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
     private Button scannerButton;
-    private Button logoutButton;
+    //private Button logoutButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        logoutButton = (Button) findViewById(R.id.logoutButton);
+        /*logoutButton = (Button) findViewById(R.id.logoutButton);
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,6 +40,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(),StartActivity.class));
                 finish();
             }
-        });
+        });*/
     }
 }

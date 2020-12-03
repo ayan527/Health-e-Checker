@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileActivity"
+    tools:context=".NewProfileActivity"
     android:background="#c868c4c6"
     android:backgroundTintMode="screen">
 
     <TextView
-        android:id="@+id/viewPatientIdTextView"
+        android:id="@+id/patientIdTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Patient ID:"
@@ -22,12 +22,12 @@
         android:layout_marginTop="30dp"/>
 
     <EditText
-        android:id="@+id/viewPatientIdEditText"
+        android:id="@+id/patientIdEditText"
         android:layout_width="215dp"
         android:layout_height="41dp"
         android:background="@drawable/inputboxwithborders"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/viewPatientIdTextView"
+        android:layout_below="@+id/patientIdTextView"
         android:textSize="20sp"
         android:textColor="#312d2d"
         android:layout_marginStart="25dp"
@@ -35,165 +35,163 @@
         android:inputType="text"/>
 
     <TextView
-        android:id="@+id/viewFirstNameTextView"
+        android:id="@+id/firstNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="First Name:"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="#312d2d"
-        android:layout_below="@+id/viewPatientIdEditText"
+        android:layout_below="@+id/patientIdEditText"
         android:layout_alignParentStart="true"
         android:layout_marginStart="25dp"
         android:layout_marginTop="15dp"/>
 
     <EditText
-        android:id="@+id/viewFirstNameEditText"
+        android:id="@+id/firstNameEditText"
         android:layout_width="215dp"
         android:layout_height="41dp"
         android:background="@drawable/inputboxwithborders"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/viewFirstNameTextView"
+        android:layout_below="@+id/firstNameTextView"
         android:textSize="20sp"
         android:textColor="#312d2d"
         android:layout_marginStart="25dp"
-        android:inputType="text"
-        android:enabled="false" />
+        android:inputType="text"/>
 
     <TextView
-        android:id="@+id/viewLastNameTextView"
+        android:id="@+id/lastNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Last Name:"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="#312d2d"
-        android:layout_below="@+id/viewFirstNameEditText"
+        android:layout_below="@+id/firstNameEditText"
         android:layout_alignParentStart="true"
         android:layout_marginStart="25dp"
         android:layout_marginTop="15dp"/>
 
     <EditText
-        android:id="@+id/viewLastNameEditText"
+        android:id="@+id/lastNameEditText"
         android:layout_width="215dp"
         android:layout_height="41dp"
         android:background="@drawable/inputboxwithborders"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/viewLastNameTextView"
+        android:layout_below="@+id/lastNameTextView"
         android:textSize="20sp"
         android:textColor="#312d2d"
         android:layout_marginStart="25dp"
-        android:inputType="text"
-        android:enabled="false"/>
+        android:inputType="text"/>
 
     <TextView
-        android:id="@+id/viewSexTextView"
+        android:id="@+id/sexTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sex:"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="#312d2d"
-        android:layout_below="@+id/viewLastNameEditText"
+        android:layout_below="@+id/lastNameEditText"
         android:layout_alignParentStart="true"
         android:layout_marginStart="25dp"
         android:layout_marginTop="15dp"/>
 
     <EditText
-        android:id="@+id/viewSexEditText"
+        android:id="@+id/sexEditText"
         android:layout_width="100dp"
         android:layout_height="41dp"
         android:background="@drawable/inputboxwithborders"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/viewSexTextView"
+        android:layout_below="@+id/sexTextView"
         android:textSize="20sp"
         android:textColor="#312d2d"
         android:layout_marginStart="25dp"
-        android:inputType="text"
-        android:enabled="false"/>
+        android:inputType="text"/>
 
     <TextView
-        android:id="@+id/viewAgeTextView"
+        android:id="@+id/ageTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Age:"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="#312d2d"
-        android:layout_below="@+id/viewSexEditText"
+        android:layout_below="@+id/sexEditText"
         android:layout_alignParentStart="true"
         android:layout_marginStart="25dp"
         android:layout_marginTop="15dp" />
 
     <EditText
-        android:id="@+id/viewAgeEditText"
+        android:id="@+id/ageEditText"
         android:layout_width="100dp"
         android:layout_height="41dp"
         android:background="@drawable/inputboxwithborders"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/viewAgeTextView"
+        android:layout_below="@+id/ageTextView"
         android:textSize="20sp"
         android:textColor="#312d2d"
         android:layout_marginStart="25dp"
         android:inputType="number"/>
 
     <TextView
-        android:id="@+id/viewWeightTextView"
+        android:id="@+id/weightTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Weight:"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="#312d2d"
-        android:layout_below="@+id/viewAgeEditText"
+        android:layout_below="@+id/ageEditText"
         android:layout_alignParentStart="true"
         android:layout_marginStart="25dp"
         android:layout_marginTop="15dp"/>
 
     <EditText
-        android:id="@+id/viewWeightEditText"
+        android:id="@+id/weightEditText"
         android:layout_width="100dp"
         android:layout_height="41dp"
         android:background="@drawable/inputboxwithborders"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/viewWeightTextView"
+        android:layout_below="@+id/weightTextView"
         android:textSize="20sp"
         android:textColor="#312d2d"
         android:layout_marginStart="25dp"
         android:inputType="number"/>
 
     <TextView
-        android:id="@+id/viewHeightTextView"
+        android:id="@+id/heightTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Height:"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="#312d2d"
-        android:layout_below="@+id/viewWeightEditText"
+        android:layout_below="@+id/weightEditText"
         android:layout_alignParentStart="true"
         android:layout_marginStart="25dp"
         android:layout_marginTop="15dp"/>
 
     <EditText
-        android:id="@+id/viewHeightEditText"
+        android:id="@+id/heightEditText"
         android:layout_width="100dp"
         android:layout_height="41dp"
         android:background="@drawable/inputboxwithborders"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/viewHeightTextView"
+        android:layout_below="@+id/heightTextView"
         android:textSize="20sp"
         android:textColor="#312d2d"
         android:layout_marginStart="25dp"
         android:inputType="numberDecimal"/>
 
     <Button
-        android:id="@+id/updatePatientButton"
+        android:id="@+id/addPatientButton"
         android:layout_width="204dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/viewHeightEditText"
+        android:layout_below="@+id/heightEditText"
         android:layout_marginTop="15dp"
         android:backgroundTint="#2598e2"
         android:layout_centerHorizontal="true"
-        android:text="Update Patient Details" />
+        android:text="Add Patient Details" />
+
 </RelativeLayout>

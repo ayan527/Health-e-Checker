@@ -46,6 +46,7 @@ public class ScannerActivity extends AppCompatActivity {
     private Button scanButton;
 
     private boolean isDetected = true;
+    private boolean isRecordShown = false;
 
     private BarcodeScannerOptions scannerOptions;
     private int scan_count = 1;
@@ -112,12 +113,14 @@ public class ScannerActivity extends AppCompatActivity {
                                                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                                                     @Override
                                                     public void onClick(DialogInterface dialog, int which) {
-                                                        Intent intent = new Intent(ScannerActivity.this,ProfileActivity.class);
+                                                       /* Intent intent = new Intent(ScannerActivity.this,ProfileActivity.class);
                                                         intent.putExtra("patient_id",barcode.getRawValue());
                                                         startActivity(intent);
 
                                                         dialog.dismiss();
-                                                        finish();
+                                                        finish();*/
+                                                        goToNextScreen(barcode.getRawValue());
+                                                        dialog.dismiss();
                                                     }
                                                 })
                                                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -162,6 +165,44 @@ public class ScannerActivity extends AppCompatActivity {
                         }
                     });
         }
+    }
+
+    private void goToNextScreen(final String barcodeValue) {
+        FirebaseDataOperations firebaseDataOperations = new FirebaseDataOperations();
+        firebaseDataOperations.getPatientDetails(barcodeValue, new GetDataListener() {
+            @Override
+            public void onStart() {
+                Log.i("Health-e-Checker", "Firebase Data Fetch Started");
+            }
+
+            @Override
+            public void onSuccess(PatientDetails patientDetails) {
+                Log.i(TAG,"onSuccess() called");
+
+                if (!isRecordShown) {
+                    isRecordShown = !isRecordShown;
+
+                    Intent intent = new Intent(ScannerActivity.this, ProfileActivity.class);
+                    intent.putExtra("patient_id", patientDetails.getId());
+                    startActivity(intent);
+                    finish();
+                }
+            }
+
+            @Override
+            public void onFailure() {
+                Log.i(TAG,"onFailure() called");
+
+                if (!isRecordShown) {
+                    isRecordShown = !isRecordShown;
+
+                    Intent intent = new Intent(ScannerActivity.this, NewProfileActivity.class);
+                    intent.putExtra("patient_id", barcodeValue);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+        });
     }
 
     private InputImage getInputImageFromFrame(Frame frame) {
