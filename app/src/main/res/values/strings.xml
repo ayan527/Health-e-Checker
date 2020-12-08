@@ -7,4 +7,14 @@
     <string name="logout">LOGOUT</string>
     <string name="scanner">SCANNER</string>
     <string name="scan_now">SCAN NOW</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="enter_nurse_id">Enter nurse-Id</string>
+    <string name="enter_first_name">Enter first name</string>
+    <string name="enter_last_name">Enter last name</string>
+    <string name="enter_gender">Enter gender</string>
+    <string-array name="gender_array">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
 </resources>

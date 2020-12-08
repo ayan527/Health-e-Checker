@@ -6,8 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class NewProfileActivity extends AppCompatActivity {
@@ -15,7 +18,10 @@ public class NewProfileActivity extends AppCompatActivity {
 
     private EditText patientIdEditText;
     private EditText firstNameEditText, lastNameEditText;
-    private EditText sexEditText, ageEditText, weightEditText, heightEditText;
+    private EditText ageEditText, weightEditText, heightEditText;
+
+    private Spinner sexSpinner;
+    private String sex;
 
     private Button addPatientButton;
 
@@ -30,6 +36,12 @@ public class NewProfileActivity extends AppCompatActivity {
         String patient_id = getIntent.getStringExtra("patient_id");
         patientIdEditText = (EditText) findViewById(R.id.patientIdEditText);
         patientIdEditText.setText(patient_id);
+
+        sexSpinner = (Spinner) findViewById(R.id.sexSpinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.gender_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sexSpinner.setAdapter(adapter);
+        sexSpinner.setSelection(0);
 
         addPatientButton = (Button) findViewById(R.id.addPatientButton);
         addPatientButton.setOnClickListener(new View.OnClickListener() {
@@ -47,7 +59,21 @@ public class NewProfileActivity extends AppCompatActivity {
         firstNameEditText = (EditText) findViewById(R.id.firstNameEditText);
         lastNameEditText = (EditText) findViewById(R.id.lastNameEditText);
         ageEditText = (EditText) findViewById(R.id.ageEditText);
-        sexEditText = (EditText) findViewById(R.id.sexEditText);
+
+        //sexEditText = (EditText) findViewById(R.id.sexEditText);
+
+        sexSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                sex = parent.getItemAtPosition(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         weightEditText = (EditText) findViewById(R.id.weightEditText);
         heightEditText = (EditText) findViewById(R.id.heightEditText);
 
@@ -58,7 +84,7 @@ public class NewProfileActivity extends AppCompatActivity {
         patientDetails.setAge(Integer.parseInt(ageEditText.getText().toString()));
         patientDetails.setWeight(Integer.parseInt(weightEditText.getText().toString()));
         patientDetails.setHeight(Double.parseDouble(heightEditText.getText().toString()));
-        patientDetails.setSex(sexEditText.getText().toString());
+        patientDetails.setSex(sex);
 
         new WriteToDatabaseTask(getApplicationContext()).execute(patientDetails);
     }

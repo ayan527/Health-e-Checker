@@ -41,6 +41,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
+
     implementation 'com.google.mlkit:barcode-scanning:16.0.3'
     implementation 'com.google.android.gms:play-services-mlkit-barcode-scanning:16.1.2'
 

@@ -4,7 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    tools:context=".RegisterActivity"
+    android:background="#c868c4c6"
+    android:backgroundTintMode="screen">
+
+    <EditText
+        android:id="@+id/registerNurseIdEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="@string/enter_nurse_id"
+        android:autofillHints="@string/enter_nurse_id"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="100dp"/>
+
+    <EditText
+        android:id="@+id/registerFirstNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="@string/enter_first_name"
+        android:autofillHints="@string/enter_first_name"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        android:layout_below="@+id/registerNurseIdEditText"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/registerLastNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="@string/enter_last_name"
+        android:autofillHints="@string/enter_last_name"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        android:layout_below="@+id/registerFirstNameEditText"
+        android:layout_marginTop="10dp"/>
+
+
+    <EditText
+        android:id="@+id/registerGenderEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="@string/enter_gender"
+        android:autofillHints="@string/enter_gender"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        android:layout_below="@+id/registerLastNameEditText"
+        android:layout_marginTop="10dp"/>
 
     <EditText
         android:id="@+id/registerEmailIdEditText"
@@ -15,8 +66,8 @@
         android:autofillHints="@string/enter_email_id"
         android:layout_marginStart="18dp"
         android:layout_marginEnd="18dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="230dp"/>
+        android:layout_below="@+id/registerGenderEditText"
+        android:layout_marginTop="10dp"/>
 
     <EditText
         android:id="@+id/registerPasswordEditText"
@@ -28,16 +79,29 @@
         android:layout_marginStart="18dp"
         android:layout_marginEnd="18dp"
         android:layout_below="@+id/registerEmailIdEditText"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/registerConfirmPasswordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="@string/confirm_password"
+        android:autofillHints="@string/confirm_password"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        android:layout_below="@+id/registerPasswordEditText"
+        android:layout_marginTop="10dp"/>
 
     <Button
         android:id="@+id/registerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/registerPasswordEditText"
+        android:layout_below="@+id/registerConfirmPasswordEditText"
         android:layout_marginTop="50dp"
         android:text="@string/register"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="#2598e2"/>
 
     <ProgressBar
         android:id="@+id/registerProgressBar"
@@ -45,6 +109,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/registerButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="12dp"
         android:visibility="invisible"/>
 </RelativeLayout>
