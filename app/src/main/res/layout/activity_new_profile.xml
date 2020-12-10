@@ -13,22 +13,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Patient ID:"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         android:textColor="#312d2d"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="20dp"/>
 
     <EditText
         android:id="@+id/patientIdEditText"
         android:layout_width="215dp"
-        android:layout_height="41dp"
+        android:layout_height="31dp"
         android:background="@drawable/inputboxwithborders"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/patientIdTextView"
-        android:textSize="20sp"
+        android:textSize="10sp"
         android:textColor="#312d2d"
         android:layout_marginStart="25dp"
         android:enabled="false"
@@ -39,22 +39,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="First Name:"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         android:textColor="#312d2d"
         android:layout_below="@+id/patientIdEditText"
         android:layout_alignParentStart="true"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="5dp"/>
 
     <EditText
         android:id="@+id/firstNameEditText"
         android:layout_width="215dp"
-        android:layout_height="41dp"
+        android:layout_height="31dp"
         android:background="@drawable/inputboxwithborders"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/firstNameTextView"
-        android:textSize="20sp"
+        android:textSize="10sp"
         android:textColor="#312d2d"
         android:layout_marginStart="25dp"
         android:inputType="text"/>
@@ -64,22 +64,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Last Name:"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         android:textColor="#312d2d"
         android:layout_below="@+id/firstNameEditText"
         android:layout_alignParentStart="true"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="5dp"/>
 
     <EditText
         android:id="@+id/lastNameEditText"
         android:layout_width="215dp"
-        android:layout_height="41dp"
+        android:layout_height="31dp"
         android:background="@drawable/inputboxwithborders"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/lastNameTextView"
-        android:textSize="20sp"
+        android:textSize="10sp"
         android:textColor="#312d2d"
         android:layout_marginStart="25dp"
         android:inputType="text"/>
@@ -89,58 +89,57 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sex:"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         android:textColor="#312d2d"
         android:layout_below="@+id/lastNameEditText"
         android:layout_alignParentStart="true"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="5dp"/>
 
-    <Spinner
+    <!--<Spinner
         android:id="@+id/sexSpinner"
         android:layout_width="100dp"
-        android:layout_height="41dp"
-        android:background="@drawable/inputboxwithborders"
+        android:layout_height="31dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/sexTextView"
-        android:textSize="20sp"
+        android:textSize="10sp"
         android:textColor="#312d2d"
-        android:layout_marginStart="25dp"/>
+        android:layout_marginStart="25dp"/> -->
 
-    <!--<EditText
+    <EditText
         android:id="@+id/sexEditText"
         android:layout_width="100dp"
-        android:layout_height="41dp"
+        android:layout_height="31dp"
         android:background="@drawable/inputboxwithborders"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/sexTextView"
-        android:textSize="20sp"
+        android:textSize="10sp"
         android:textColor="#312d2d"
         android:layout_marginStart="25dp"
-        android:inputType="text"/> -->
+        android:inputType="text"/>
 
     <TextView
         android:id="@+id/ageTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Age:"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         android:textColor="#312d2d"
-        android:layout_below="@+id/sexSpinner"
+        android:layout_below="@+id/sexEditText"
         android:layout_alignParentStart="true"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="15dp" />
+        android:layout_marginTop="5dp" />
 
     <EditText
         android:id="@+id/ageEditText"
         android:layout_width="100dp"
-        android:layout_height="41dp"
+        android:layout_height="31dp"
         android:background="@drawable/inputboxwithborders"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/ageTextView"
-        android:textSize="20sp"
+        android:textSize="10sp"
         android:textColor="#312d2d"
         android:layout_marginStart="25dp"
         android:inputType="number"/>
@@ -150,22 +149,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Weight:"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         android:textColor="#312d2d"
         android:layout_below="@+id/ageEditText"
         android:layout_alignParentStart="true"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="5dp"/>
 
     <EditText
         android:id="@+id/weightEditText"
         android:layout_width="100dp"
-        android:layout_height="41dp"
+        android:layout_height="31dp"
         android:background="@drawable/inputboxwithborders"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/weightTextView"
-        android:textSize="20sp"
+        android:textSize="10sp"
         android:textColor="#312d2d"
         android:layout_marginStart="25dp"
         android:inputType="number"/>
@@ -175,31 +174,106 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Height:"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         android:textColor="#312d2d"
         android:layout_below="@+id/weightEditText"
         android:layout_alignParentStart="true"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="5dp"/>
 
     <EditText
         android:id="@+id/heightEditText"
         android:layout_width="100dp"
-        android:layout_height="41dp"
+        android:layout_height="31dp"
         android:background="@drawable/inputboxwithborders"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/heightTextView"
-        android:textSize="20sp"
+        android:textSize="10sp"
         android:textColor="#312d2d"
         android:layout_marginStart="25dp"
         android:inputType="numberDecimal"/>
+
+    <TextView
+        android:id="@+id/bloodPressureTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Blood Pressure:"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="#312d2d"
+        android:layout_below="@+id/heightEditText"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"/>
+
+    <EditText
+        android:id="@+id/bloodPressureEditText"
+        android:layout_width="100dp"
+        android:layout_height="31dp"
+        android:background="@drawable/inputboxwithborders"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/bloodPressureTextView"
+        android:textSize="10sp"
+        android:textColor="#312d2d"
+        android:layout_marginStart="25dp"
+        android:inputType="text"/>
+
+    <TextView
+        android:id="@+id/temperatureTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Temperature (°F):"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="#312d2d"
+        android:layout_below="@+id/bloodPressureEditText"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"/>
+
+    <EditText
+        android:id="@+id/temperatureEditText"
+        android:layout_width="100dp"
+        android:layout_height="31dp"
+        android:background="@drawable/inputboxwithborders"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/temperatureTextView"
+        android:textSize="10sp"
+        android:textColor="#312d2d"
+        android:layout_marginStart="25dp"
+        android:inputType="numberDecimal"/>
+
+    <TextView
+        android:id="@+id/pulseRateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pulse-Rate (bpm):"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="#312d2d"
+        android:layout_below="@+id/temperatureEditText"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"/>
+
+    <EditText
+        android:id="@+id/pulseRateEditText"
+        android:layout_width="100dp"
+        android:layout_height="31dp"
+        android:background="@drawable/inputboxwithborders"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/pulseRateTextView"
+        android:textSize="10sp"
+        android:textColor="#312d2d"
+        android:layout_marginStart="25dp"
+        android:inputType="number"/>
 
     <Button
         android:id="@+id/addPatientButton"
         android:layout_width="204dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/heightEditText"
+        android:layout_below="@+id/pulseRateEditText"
         android:layout_marginTop="15dp"
         android:backgroundTint="#2598e2"
         android:layout_centerHorizontal="true"

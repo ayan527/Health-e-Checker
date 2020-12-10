@@ -17,6 +17,7 @@ public class ProfileActivity extends AppCompatActivity {
     private EditText viewPatientIdEditText;
     private EditText viewFirstNameEditText, viewLastNameEditText;
     private EditText viewSexEditText, viewAgeEditText, viewWeightEditText, viewHeightEditText;
+    private EditText viewBloodPressureEditText, viewTemperatureEditText, viewPulseRateEditText;
 
     private Button updatePatientButton;
 
@@ -83,6 +84,15 @@ public class ProfileActivity extends AppCompatActivity {
         viewHeightEditText = (EditText) findViewById(R.id.viewHeightEditText);
         viewHeightEditText.setText(patientDetails.getHeight().toString());
 
+        viewBloodPressureEditText = (EditText) findViewById(R.id.viewBloodPressureEditText);
+        viewBloodPressureEditText.setText(patientDetails.getBloodPressure().toString());
+
+        viewPulseRateEditText = (EditText) findViewById(R.id.viewPulseRateEditText);
+        viewPulseRateEditText.setText(patientDetails.getPulseRate().toString());
+
+        viewTemperatureEditText = (EditText) findViewById(R.id.viewTemperatureEditText);
+        viewTemperatureEditText.setText(patientDetails.getTemperature().toString());
+
         updatePatientButton = (Button) findViewById(R.id.updatePatientButton);
         updatePatientButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,6 +105,9 @@ public class ProfileActivity extends AppCompatActivity {
                 patientDetails.setAge(Integer.parseInt(viewAgeEditText.getText().toString()));
                 patientDetails.setWeight(Integer.parseInt(viewWeightEditText.getText().toString()));
                 patientDetails.setHeight(Double.parseDouble(viewHeightEditText.getText().toString()));
+                patientDetails.setPulseRate(Integer.parseInt(viewPulseRateEditText.getText().toString()));
+                patientDetails.setBloodPressure(viewBloodPressureEditText.getText().toString());
+                patientDetails.setTemperature(Double.parseDouble(viewTemperatureEditText.getText().toString()));
 
                 firebaseDataOperations.updateRecord(patientDetails);
 

@@ -7,10 +7,37 @@ public class PatientDetails implements Serializable {
     private String firstName;
     private String lastName;
     private String sex;
+    private String bloodPressure;
 
     private Integer age;
     private Double height;
+    private Double temperature;
+    private Integer pulseRate;
     private Integer weight;
+
+    public String getBloodPressure() {
+        return bloodPressure;
+    }
+
+    public void setBloodPressure(String bloodPressure) {
+        this.bloodPressure = bloodPressure;
+    }
+
+    public Double getTemperature() {
+        return temperature;
+    }
+
+    public void setTemperature(Double temperature) {
+        this.temperature = temperature;
+    }
+
+    public Integer getPulseRate() {
+        return pulseRate;
+    }
+
+    public void setPulseRate(Integer pulseRate) {
+        this.pulseRate = pulseRate;
+    }
 
     public String getId() {
         return id;
