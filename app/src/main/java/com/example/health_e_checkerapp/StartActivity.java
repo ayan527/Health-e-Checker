@@ -18,13 +18,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class StartActivity extends AppCompatActivity implements View.OnClickListener{
+public class StartActivity extends AppCompatActivity{
     private static final String TAG = "StartActivity";
 
     private ProgressBar startProgressBar;
-
-    private Button startLoginButton;
-    private Button startRegisterButton;
 
     private FirebaseAuth firebaseAuth;
 
@@ -36,12 +33,6 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_start);
 
         Log.i(TAG,"onCreate() method called");
-
-        startLoginButton = (Button) findViewById(R.id.startLoginButton);
-        startRegisterButton = (Button) findViewById(R.id.startRegisterButton);
-
-        startLoginButton.setOnClickListener(this);
-        startRegisterButton.setOnClickListener(this);
 
         startProgressBar = (ProgressBar) findViewById(R.id.startProgressBar);
         startProgressBar.setVisibility(View.VISIBLE);
@@ -56,7 +47,14 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         NurseDetails nurse = snapshot.getValue(NurseDetails.class);
                         if (nurse.getEmailId().equals(emailId)) {
-                            startActivity(new Intent(getApplicationContext(),MainActivity.class).putExtra("nurse_id",nurse.getId()).putExtra("nurse_fullName",nurse.getFirstName() + " " +nurse.getLastName()));
+                            startProgressBar.setVisibility(View.GONE);
+                            startActivity(new Intent(getApplicationContext(),MainActivity.class)
+                                    .putExtra("nurse_id",nurse.getId())
+                                    .putExtra("nurse_fullName",nurse.getFullName())
+                                    .putExtra("nurse_emailId",nurse.getEmailId())
+                                    .putExtra("nurse_gender",nurse.getGender())
+                                    .putExtra("nurse_views",nurse.getViews())
+                                    .putExtra("nurse_mobileNo",nurse.getMobileNo()));
                             finish();
                             break;
                         }
@@ -69,28 +67,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 }
             });
         } else {
-            startProgressBar.setVisibility(View.INVISIBLE);
-            startLoginButton.setVisibility(View.VISIBLE);
-            startRegisterButton.setVisibility(View.VISIBLE);
+            startProgressBar.setVisibility(View.GONE);
+            startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+            finish();
         }
     }
-
-    @SuppressLint("NonConstantResourceId")
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.startLoginButton:
-                startNewActivity(LoginActivity.class);
-                break;
-            case R.id.startRegisterButton:
-                startNewActivity(RegisterActivity.class);
-                break;
-        }
-    }
-
-    private void startNewActivity(Class<?> activityClass) {
-        startActivity(new Intent(StartActivity.this,activityClass));
-        finish();
-    }
-
 }

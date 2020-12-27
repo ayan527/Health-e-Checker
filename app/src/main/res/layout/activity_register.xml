@@ -4,111 +4,214 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity"
-    android:background="#c868c4c6"
-    android:backgroundTintMode="screen">
+    tools:context=".RegisterActivity">
 
-    <EditText
-        android:id="@+id/registerNurseIdEditText"
+    <ImageView
+        android:background="@drawable/logo"
+        android:layout_width="match_parent"
+        android:alpha="0.35"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:id="@+id/registerTitleView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
-        android:hint="@string/enter_nurse_id"
-        android:autofillHints="@string/enter_nurse_id"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="18dp"
+        android:textColor="@color/text_field"
+        android:text="Register Now!"
+        android:fontFamily="@font/logo_font_alt"
+        android:textSize="35sp"
+        android:gravity="center"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginTop="29dp"
+        android:textStyle="bold"/>
 
-    <EditText
-        android:id="@+id/registerFirstNameEditText"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-        android:hint="@string/enter_first_name"
-        android:autofillHints="@string/enter_first_name"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="18dp"
-        android:layout_below="@+id/registerNurseIdEditText"
-        android:layout_marginTop="10dp"/>
-
-    <EditText
-        android:id="@+id/registerLastNameEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-        android:hint="@string/enter_last_name"
-        android:autofillHints="@string/enter_last_name"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="18dp"
-        android:layout_below="@+id/registerFirstNameEditText"
-        android:layout_marginTop="10dp"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="28dp"
+        android:paddingEnd="28dp"
+        android:gravity="center"
+        android:layout_below="@+id/registerTitleView">
 
 
-    <EditText
-        android:id="@+id/registerGenderEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-        android:hint="@string/enter_gender"
-        android:autofillHints="@string/enter_gender"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="18dp"
-        android:layout_below="@+id/registerLastNameEditText"
-        android:layout_marginTop="10dp"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            app:errorEnabled="true"
+            app:boxBackgroundColor="#EEEDEF"
+            app:hintTextColor="@color/text_field"
+            >
 
-    <EditText
-        android:id="@+id/registerEmailIdEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:hint="@string/enter_email_id"
-        android:autofillHints="@string/enter_email_id"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="18dp"
-        android:layout_below="@+id/registerGenderEditText"
-        android:layout_marginTop="10dp"/>
+            <EditText
+                android:id="@+id/registerNurseIdEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nurse-Id"
+                android:ems="10"
+                android:textSize="18sp"
+                android:inputType="text"/>
 
-    <EditText
-        android:id="@+id/registerPasswordEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:hint="@string/enter_password"
-        android:autofillHints="@string/enter_password"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="18dp"
-        android:layout_below="@+id/registerEmailIdEditText"
-        android:layout_marginTop="10dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/registerConfirmPasswordEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:hint="@string/confirm_password"
-        android:autofillHints="@string/confirm_password"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="18dp"
-        android:layout_below="@+id/registerPasswordEditText"
-        android:layout_marginTop="10dp"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            app:errorEnabled="true"
+            app:boxBackgroundColor="#EEEDEF"
+            app:hintTextColor="@color/text_field"
+            >
 
-    <Button
-        android:id="@+id/registerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/registerConfirmPasswordEditText"
-        android:layout_marginTop="50dp"
-        android:text="@string/register"
-        android:layout_centerHorizontal="true"
-        android:backgroundTint="#2598e2"/>
+            <EditText
+                android:id="@+id/registerFullNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Full Name"
+                android:ems="10"
+                android:textSize="18sp"
+                android:inputType="text"/>
 
-    <ProgressBar
-        android:id="@+id/registerProgressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/registerButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="12dp"
-        android:visibility="invisible"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            app:errorEnabled="true"
+            app:boxBackgroundColor="#EEEDEF"
+            app:hintTextColor="@color/text_field"
+            >
+
+            <EditText
+                android:id="@+id/registerMobileNoEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Mobile No"
+                android:ems="10"
+                android:textSize="18sp"
+                android:inputType="number"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <RadioGroup
+            android:id="@+id/registerGenderRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gender"
+                android:textSize="18sp"/>
+
+            <RadioButton
+                android:id="@+id/registerGenderMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                android:layout_marginStart="10dp"
+                android:textSize="18sp"/>
+
+            <RadioButton
+                android:id="@+id/registerGenderFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:layout_marginStart="10dp"
+                android:textSize="18sp"/>
+        </RadioGroup>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            app:errorEnabled="true"
+            app:boxBackgroundColor="#EEEDEF"
+            app:hintTextColor="@color/text_field"
+            >
+
+            <EditText
+                android:id="@+id/registerEmailIdEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email-Id"
+                android:ems="10"
+                android:textSize="18sp"
+                android:inputType="textEmailAddress"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            app:errorEnabled="true"
+            app:boxBackgroundColor="#EEEDEF"
+            app:passwordToggleEnabled="true"
+            app:hintTextColor="@color/text_field"
+            >
+
+            <EditText
+                android:id="@+id/registerPasswordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:ems="10"
+                android:textSize="18sp"
+                android:inputType="textPassword"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            app:errorEnabled="true"
+            app:boxBackgroundColor="#EEEDEF"
+            app:passwordToggleEnabled="true"
+            app:hintTextColor="@color/text_field"
+            >
+
+            <EditText
+                android:id="@+id/registerConfirmPasswordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Confirm Password"
+                android:ems="10"
+                android:textSize="18sp"
+                android:inputType="textPassword"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/registerButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@string/register"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_design"/>
+
+        <ProgressBar
+            android:id="@+id/registerProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:visibility="invisible"/>
+
+    </LinearLayout>
+
+
 </RelativeLayout>

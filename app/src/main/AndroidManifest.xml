@@ -11,21 +11,23 @@
 
     <application
         android:allowBackup="true"
-        android:label="@string/app_name"
         android:icon="@mipmap/logo_app"
+        android:label="@string/app_name"
         android:logo="@mipmap/logo_app"
         android:roundIcon="@mipmap/logo_app"
         android:supportsRtl="true"
         android:theme="@style/Theme.HealtheCheckerApp">
-        <activity android:name=".NewProfileActivity"/>
+        <activity android:name=".ForgotPasswordActivity"></activity>
+        <activity android:name=".NewProfileActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".ScannerActivity" />
         <activity android:name=".StartActivity" />
-        <activity android:name=".LaunchActivity"
+        <activity
+            android:name=".LaunchActivity"
             android:icon="@mipmap/logo_app"
             android:logo="@mipmap/logo_app"
-            android:roundIcon="@mipmap/logo_app"
-            android:resizeableActivity="false">
+            android:resizeableActivity="false"
+            android:roundIcon="@mipmap/logo_app">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,11 +36,12 @@
         </activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:icon="@mipmap/logo_app"
             android:logo="@mipmap/logo_app"
-            android:roundIcon="@mipmap/logo_app"
-            android:resizeableActivity="false"/>
+            android:resizeableActivity="false"
+            android:roundIcon="@mipmap/logo_app" />
 
         <meta-data
             android:name="com.google.mlkit.vision.DEPENDENCIES"

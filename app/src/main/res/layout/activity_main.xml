@@ -4,37 +4,191 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="#c868c4c6"
-    android:backgroundTintMode="screen">
+    tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/welcomeTextView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_alignParentTop="true"
-        android:textAlignment="center"
-        android:layout_marginTop="100dp"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="390dp">
+            <LinearLayout
+                android:background="@drawable/gradientbackground"
+                android:layout_width="match_parent"
+                android:layout_height="335dp"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_marginTop="45dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="135dp"
+                    android:layout_height="135dp"
+                    android:src="@drawable/nurse"/>
+                <TextView
+                    android:id="@+id/nurseFullNameTextView"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Shaoni Mukherjee"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:textSize="20sp"/>
+            </LinearLayout>
+            <androidx.cardview.widget.CardView
+                android:layout_width="350dp"
+                android:layout_height="120dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="260dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+                    <LinearLayout
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ID"
+                            android:textSize="20sp"
+                            />
+                        <TextView
+                            android:id="@+id/nurseIdTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ID0001"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:paddingTop="10dp"
+                            android:textColor="@color/text_field"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Gender"
+                            android:textSize="20sp"
+                            />
+                        <TextView
+                            android:id="@+id/nurseGenderTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Female"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:paddingTop="10dp"
+                            android:textColor="@color/text_field"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Views"
+                            android:textSize="20sp"
+                            />
+                        <TextView
+                            android:id="@+id/nurseViewsTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:paddingTop="10dp"
+                            android:textColor="@color/text_field"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:paddingLeft="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_email_icon"/>
+                <TextView
+                    android:id="@+id/nurseEmailIdTextView"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/text_field"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="25dp"
+                    android:text="shaoni@gmail.com"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal"
+                android:paddingLeft="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_phone_icon"/>
+                <TextView
+                    android:id="@+id/nurseMobileNoTextView"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/text_field"
+                    android:paddingLeft="25dp"
+                    android:text="+91 9874561230"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 
     <Button
         android:id="@+id/scannerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
         android:text="@string/scanner"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:layout_above="@+id/logoutButton"
+        android:layout_marginBottom="20dp"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:backgroundTint="#2598e2"
-        android:layout_marginTop="250dp"/>
+        android:padding="5dp"
+        android:background="@drawable/button_design"/>
 
     <Button
         android:id="@+id/logoutButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/logout"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/scannerButton"
-        android:layout_marginTop="50dp"
-        android:backgroundTint="#2598e2"/>
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:background="@drawable/logout"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginEnd="25dp"/>
 
 </RelativeLayout>

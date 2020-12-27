@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -31,13 +33,15 @@ import java.util.Objects;
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "RegisterActivity";
 
-    private EditText registerFirstNameEditText;
-    private EditText registerLastNameEditText;
-    private EditText registerGenderEditText;
+    private EditText registerFullNameEditText;
+    private EditText registerMobileNoEditText;
     private EditText registerNurseIdEditText;
     private EditText registerEmailIdEditText;
     private EditText registerPasswordEditText;
     private EditText registerConfirmPasswordEditText;
+
+    private RadioGroup registerGenderRadioGroup;
+    private RadioButton registerGenderRadioButton;
 
     private Button registerButton;
 
@@ -56,12 +60,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         Log.i(TAG,"onCreate() method called");
 
         registerNurseIdEditText = (EditText) findViewById(R.id.registerNurseIdEditText);
-        registerFirstNameEditText = (EditText) findViewById(R.id.registerFirstNameEditText);
-        registerLastNameEditText = (EditText) findViewById(R.id.registerLastNameEditText);
-        registerGenderEditText = (EditText) findViewById(R.id.registerGenderEditText);
+        registerFullNameEditText = (EditText) findViewById(R.id.registerFullNameEditText);
+        registerMobileNoEditText = (EditText) findViewById(R.id.registerMobileNoEditText);
         registerEmailIdEditText = (EditText) findViewById(R.id.registerEmailIdEditText);
         registerPasswordEditText = (EditText) findViewById(R.id.registerPasswordEditText);
         registerConfirmPasswordEditText = (EditText) findViewById(R.id.registerConfirmPasswordEditText);
+
+        registerGenderRadioGroup = (RadioGroup) findViewById(R.id.registerGenderRadioGroup);
 
         registerProgressBar = (ProgressBar) findViewById(R.id.registerProgressBar);
 
@@ -75,30 +80,33 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         String id = registerNurseIdEditText.getText().toString().trim();
-        String firstName = registerFirstNameEditText.getText().toString().trim();
-        String lastName = registerLastNameEditText.getText().toString().trim();
-        String gender = registerGenderEditText.getText().toString().trim();
+        String fullName = registerFullNameEditText.getText().toString().trim();
+        String mobileNo = registerMobileNoEditText.getText().toString().trim();
         String emailId = registerEmailIdEditText.getText().toString().trim();
         String password = registerPasswordEditText.getText().toString().trim();
         String confirmPassword = registerConfirmPasswordEditText.getText().toString().trim();
+
+        int radioButtonId = registerGenderRadioGroup.getCheckedRadioButtonId();
+        if (radioButtonId == -1) {
+            Toast.makeText(RegisterActivity.this,"Gender is not selected",Toast.LENGTH_SHORT).show();
+            return;
+        } else {
+            registerGenderRadioButton = (RadioButton) findViewById(radioButtonId);
+        }
+        String gender = registerGenderRadioButton.getText().toString().trim();
 
         if (TextUtils.isEmpty(id)) {
             registerNurseIdEditText.setError("Nurse-Id is empty");
             return;
         }
 
-        if (TextUtils.isEmpty(firstName)) {
-            registerFirstNameEditText.setError("First-Name is empty");
+        if (TextUtils.isEmpty(fullName)) {
+            registerFullNameEditText.setError("Full Name is empty");
             return;
         }
 
-        if (TextUtils.isEmpty(lastName)) {
-            registerLastNameEditText.setError("Last-Name is empty");
-            return;
-        }
-
-        if (TextUtils.isEmpty(gender)) {
-            registerGenderEditText.setError("Gender is empty");
+        if (TextUtils.isEmpty(mobileNo)) {
+            registerMobileNoEditText.setError("Mobile No is empty");
             return;
         }
 
@@ -129,22 +137,23 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         registerProgressBar.setVisibility(View.VISIBLE);
 
-        checkEmailOrIdPresent(databaseReference,id,firstName,lastName,gender,emailId,password);
+        checkEmailOrIdPresent(databaseReference,id,fullName,mobileNo,gender,emailId,password);
     }
 
-    private void addNurseDetails(String id, String firstName, String lastName, String gender, String emailId) {
+    private void addNurseDetails(String id, String fullName, String mobileNo, String gender, String emailId) {
         NurseDetails nurseDetails = new NurseDetails();
 
         nurseDetails.setId(id);
-        nurseDetails.setFirstName(firstName);
-        nurseDetails.setLastName(lastName);
+        nurseDetails.setFullName(fullName);
+        nurseDetails.setMobileNo(mobileNo);
         nurseDetails.setGender(gender);
         nurseDetails.setEmailId(emailId);
+        nurseDetails.setViews(0);
 
         databaseReference.child("nurseDetails").child(nurseDetails.getId()).setValue(nurseDetails);
     }
 
-    private void checkEmailOrIdPresent(DatabaseReference databaseReference, String id, String firstName, String lastName, String gender, String emailId, String password) {
+    private void checkEmailOrIdPresent(DatabaseReference databaseReference, String id, String fullName, String mobileNo, String gender, String emailId, String password) {
         databaseReference.child("nurseDetails").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -169,7 +178,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     if (!found) {
                         isUserCreated = !isUserCreated;
                         Log.i(TAG, "Calling create method");
-                        createNurseUser(id, firstName, lastName, gender, emailId, password);
+                        createNurseUser(id, fullName, mobileNo, gender, emailId, password);
                     } else {
                         resetAllFields();
                     }
@@ -185,9 +194,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     private void resetAllFields() {
         registerNurseIdEditText.setText("");
-        registerFirstNameEditText.setText("");
-        registerLastNameEditText.setText("");
-        registerGenderEditText.setText("");
+        registerFullNameEditText.setText("");
+        registerMobileNoEditText.setText("");
+        registerGenderRadioGroup.clearCheck();
         registerEmailIdEditText.setText("");
         registerPasswordEditText.setText("");
         registerConfirmPasswordEditText.setText("");
@@ -195,7 +204,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         registerProgressBar.setVisibility(View.GONE);
     }
 
-    private void createNurseUser(String id, String firstName, String lastName, String gender, String emailId, String password) {
+    private void createNurseUser(String id, String fullName, String mobileNo, String gender, String emailId, String password) {
         Log.i(TAG,"Creating User");
 
         firebaseAuth.createUserWithEmailAndPassword(emailId,password)
@@ -204,7 +213,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
 
-                            addNurseDetails(id,firstName,lastName,gender,emailId);
+                            addNurseDetails(id,fullName,mobileNo,gender,emailId);
 
                             FirebaseUser currentUser = firebaseAuth.getCurrentUser();
                             assert currentUser != null;

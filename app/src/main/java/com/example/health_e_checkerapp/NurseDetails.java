@@ -2,10 +2,19 @@ package com.example.health_e_checkerapp;
 
 public class NurseDetails {
     private String id;
-    private String firstName;
-    private String lastName;
+    private String fullName;
+    private String mobileNo;
     private String gender;
     private String emailId;
+    private Integer views;
+
+    public Integer getViews() {
+        return views;
+    }
+
+    public void setViews(Integer views) {
+        this.views = views;
+    }
 
     public String getId() {
         return id;
@@ -15,20 +24,20 @@ public class NurseDetails {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getMobileNo() {
+        return mobileNo;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setMobileNo(String mobileNo) {
+        this.mobileNo = mobileNo;
     }
 
     public String getGender() {

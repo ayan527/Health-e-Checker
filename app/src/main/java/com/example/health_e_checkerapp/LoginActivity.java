@@ -4,13 +4,20 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.TextPaint;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -31,6 +38,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private EditText loginEmailIdEditText;
     private EditText loginPasswordEditText;
+    private TextView forgotPasswordTextView;
+    private TextView registerTextView;
 
     private Button loginButton;
 
@@ -51,6 +60,44 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         firebaseAuth = FirebaseAuth.getInstance();
 
+        forgotPasswordTextView = (TextView) findViewById(R.id.forgotPasswordTextView);
+        SpannableString ss2 = new SpannableString("Forgot Password?");
+        ClickableSpan clickableSpan2 = new ClickableSpan() {
+            @Override
+            public void onClick(View textView) {
+                startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));
+            }
+            @Override
+            public void updateDrawState(TextPaint ds) {
+                super.updateDrawState(ds);
+                ds.setUnderlineText(false);
+            }
+        };
+        ss2.setSpan(clickableSpan2, 0,16, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        forgotPasswordTextView.setText(ss2);
+        forgotPasswordTextView.setMovementMethod(LinkMovementMethod.getInstance());
+        forgotPasswordTextView.setHighlightColor(Color.TRANSPARENT);
+        forgotPasswordTextView.setLinkTextColor(getResources().getColor(R.color.text_field));
+
+        registerTextView = (TextView) findViewById(R.id.registerTextView);
+        SpannableString ss1 = new SpannableString("No account? Register Now");
+        ClickableSpan clickableSpan1 = new ClickableSpan() {
+            @Override
+            public void onClick(View textView) {
+                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+            }
+            @Override
+            public void updateDrawState(TextPaint ds) {
+                super.updateDrawState(ds);
+                ds.setUnderlineText(false);
+            }
+        };
+        ss1.setSpan(clickableSpan1, 12, 20, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        registerTextView.setText(ss1);
+        registerTextView.setMovementMethod(LinkMovementMethod.getInstance());
+        registerTextView.setHighlightColor(Color.TRANSPARENT);
+        registerTextView.setLinkTextColor(getResources().getColor(R.color.text_field));
+
         loginEmailIdEditText = (EditText) findViewById(R.id.loginEmailIdEditText);
         loginPasswordEditText = (EditText) findViewById(R.id.loginPasswordEditText);
 
@@ -68,8 +115,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         isEmailVerified = currentUser.isEmailVerified();
 
         if (! isEmailVerified) {
-            Toast.makeText(getApplicationContext(),"Please go to your email & verify your account...",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"Please go to your email & verify your account !",Toast.LENGTH_SHORT).show();
             firebaseAuth.signOut();
+            loginProgressBar.setVisibility(View.GONE);
             startActivity(new Intent(getApplicationContext(),LoginActivity.class));
             finish();
         } else {
@@ -81,7 +129,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         NurseDetails nurse = snapshot.getValue(NurseDetails.class);
                         if (nurse.getEmailId().equals(emailId)) {
-                            startActivity(new Intent(getApplicationContext(),MainActivity.class).putExtra("nurse_id",nurse.getId()).putExtra("nurse_fullName",nurse.getFirstName() + " " +nurse.getLastName()));
+                            loginProgressBar.setVisibility(View.GONE);
+                            startActivity(new Intent(getApplicationContext(),MainActivity.class).putExtra("nurse_id",nurse.getId())
+                                    .putExtra("nurse_id",nurse.getId())
+                                    .putExtra("nurse_fullName",nurse.getFullName())
+                                    .putExtra("nurse_emailId",nurse.getEmailId())
+                                    .putExtra("nurse_gender",nurse.getGender())
+                                    .putExtra("nurse_views",Integer.toString(nurse.getViews()))
+                                    .putExtra("nurse_mobileNo",nurse.getMobileNo()));
                             finish();
                             break;
                         }
