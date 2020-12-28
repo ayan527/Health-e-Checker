@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -53,6 +54,7 @@ public class ScannerActivity extends AppCompatActivity {
 
 //    private BarcodeDetector scannerDetector;
     private BarcodeScanner scanner;
+    private String nurse_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +63,7 @@ public class ScannerActivity extends AppCompatActivity {
 
         Log.i(TAG,"onCreate() method called");
 
+        nurse_id = getIntent().getStringExtra("nurse_id");
     }
 
     private void setupScannerCamera() {
@@ -182,8 +185,9 @@ public class ScannerActivity extends AppCompatActivity {
                 if (!isRecordShown) {
                     isRecordShown = !isRecordShown;
 
-                    Intent intent = new Intent(ScannerActivity.this, ProfileActivity.class);
+                    Intent intent = new Intent(ScannerActivity.this, PatientActivity.class);
                     intent.putExtra("patient_id", patientDetails.getId());
+                    intent.putExtra("nurse_id", nurse_id);
                     startActivity(intent);
                     finish();
                 }
@@ -198,6 +202,7 @@ public class ScannerActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(ScannerActivity.this, NewProfileActivity.class);
                     intent.putExtra("patient_id", barcodeValue);
+                    intent.putExtra("nurse_id", nurse_id);
                     startActivity(intent);
                     finish();
                 }

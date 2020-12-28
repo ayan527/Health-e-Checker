@@ -4,279 +4,321 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewProfileActivity"
-    android:background="#c868c4c6"
-    android:backgroundTintMode="screen">
+    tools:context=".NewProfileActivity">
 
-    <TextView
-        android:id="@+id/patientIdTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Patient ID:"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:textColor="#312d2d"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="20dp"/>
+    <ImageView
+        android:background="@drawable/logo"
+        android:layout_width="match_parent"
+        android:alpha="0.35"
+        android:layout_height="match_parent"/>
 
-    <EditText
-        android:id="@+id/patientIdEditText"
-        android:layout_width="215dp"
-        android:layout_height="31dp"
-        android:background="@drawable/inputboxwithborders"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/patientIdTextView"
-        android:textSize="10sp"
-        android:textColor="#312d2d"
-        android:layout_marginStart="25dp"
-        android:enabled="false"
-        android:inputType="text"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/firstNameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="First Name:"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:textColor="#312d2d"
-        android:layout_below="@+id/patientIdEditText"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="5dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+            android:gravity="center">
 
-    <EditText
-        android:id="@+id/firstNameEditText"
-        android:layout_width="215dp"
-        android:layout_height="31dp"
-        android:background="@drawable/inputboxwithborders"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/firstNameTextView"
-        android:textSize="10sp"
-        android:textColor="#312d2d"
-        android:layout_marginStart="25dp"
-        android:inputType="text"/>
+            <TextView
+                android:id="@+id/editTitleView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_field"
+                android:text="Add Details!"
+                android:textSize="35sp"
+                android:gravity="center"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="35dp"
+                android:textStyle="bold"/>
 
-    <TextView
-        android:id="@+id/lastNameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Last Name:"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:textColor="#312d2d"
-        android:layout_below="@+id/firstNameEditText"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="5dp"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                app:errorEnabled="true"
+                app:boxBackgroundColor="#EEEDEF"
+                app:hintTextColor="@color/text_field"
+                >
 
-    <EditText
-        android:id="@+id/lastNameEditText"
-        android:layout_width="215dp"
-        android:layout_height="31dp"
-        android:background="@drawable/inputboxwithborders"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/lastNameTextView"
-        android:textSize="10sp"
-        android:textColor="#312d2d"
-        android:layout_marginStart="25dp"
-        android:inputType="text"/>
+                <EditText
+                    android:id="@+id/newPatientIdEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Patient-Id"
+                    android:ems="10"
+                    android:textSize="18sp"
+                    android:inputType="text"/>
 
-    <TextView
-        android:id="@+id/sexTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sex:"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:textColor="#312d2d"
-        android:layout_below="@+id/lastNameEditText"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="5dp"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <!--<Spinner
-        android:id="@+id/sexSpinner"
-        android:layout_width="100dp"
-        android:layout_height="31dp"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/sexTextView"
-        android:textSize="10sp"
-        android:textColor="#312d2d"
-        android:layout_marginStart="25dp"/> -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                app:errorEnabled="true"
+                app:boxBackgroundColor="#EEEDEF"
+                app:hintTextColor="@color/text_field"
+                >
 
-    <EditText
-        android:id="@+id/sexEditText"
-        android:layout_width="100dp"
-        android:layout_height="31dp"
-        android:background="@drawable/inputboxwithborders"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/sexTextView"
-        android:textSize="10sp"
-        android:textColor="#312d2d"
-        android:layout_marginStart="25dp"
-        android:inputType="text"/>
+                <EditText
+                    android:id="@+id/newPatientFullNameEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Full Name"
+                    android:ems="10"
+                    android:textSize="18sp"
+                    android:inputType="text"/>
 
-    <TextView
-        android:id="@+id/ageTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Age:"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:textColor="#312d2d"
-        android:layout_below="@+id/sexEditText"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="5dp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/ageEditText"
-        android:layout_width="100dp"
-        android:layout_height="31dp"
-        android:background="@drawable/inputboxwithborders"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/ageTextView"
-        android:textSize="10sp"
-        android:textColor="#312d2d"
-        android:layout_marginStart="25dp"
-        android:inputType="number"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                app:errorEnabled="true"
+                app:boxBackgroundColor="#EEEDEF"
+                app:hintTextColor="@color/text_field"
+                >
 
-    <TextView
-        android:id="@+id/weightTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Weight:"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:textColor="#312d2d"
-        android:layout_below="@+id/ageEditText"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="5dp"/>
+                <EditText
+                    android:id="@+id/newPatientMobileNoEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Mobile No"
+                    android:ems="10"
+                    android:textSize="18sp"
+                    android:inputType="number"/>
 
-    <EditText
-        android:id="@+id/weightEditText"
-        android:layout_width="100dp"
-        android:layout_height="31dp"
-        android:background="@drawable/inputboxwithborders"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/weightTextView"
-        android:textSize="10sp"
-        android:textColor="#312d2d"
-        android:layout_marginStart="25dp"
-        android:inputType="number"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/heightTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Height:"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:textColor="#312d2d"
-        android:layout_below="@+id/weightEditText"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="5dp"/>
+            <RadioGroup
+                android:id="@+id/newPatientGenderRadioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
 
-    <EditText
-        android:id="@+id/heightEditText"
-        android:layout_width="100dp"
-        android:layout_height="31dp"
-        android:background="@drawable/inputboxwithborders"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/heightTextView"
-        android:textSize="10sp"
-        android:textColor="#312d2d"
-        android:layout_marginStart="25dp"
-        android:inputType="numberDecimal"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gender"
+                    android:textSize="18sp"/>
 
-    <TextView
-        android:id="@+id/bloodPressureTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Blood Pressure:"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:textColor="#312d2d"
-        android:layout_below="@+id/heightEditText"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="5dp"/>
+                <RadioButton
+                    android:id="@+id/newPatientMaleRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Male"
+                    android:layout_marginStart="10dp"
+                    android:textSize="18sp"/>
 
-    <EditText
-        android:id="@+id/bloodPressureEditText"
-        android:layout_width="100dp"
-        android:layout_height="31dp"
-        android:background="@drawable/inputboxwithborders"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/bloodPressureTextView"
-        android:textSize="10sp"
-        android:textColor="#312d2d"
-        android:layout_marginStart="25dp"
-        android:inputType="text"/>
+                <RadioButton
+                    android:id="@+id/newPatientFemaleRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Female"
+                    android:layout_marginStart="10dp"
+                    android:textSize="18sp"/>
+            </RadioGroup>
 
-    <TextView
-        android:id="@+id/temperatureTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Temperature (°F):"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:textColor="#312d2d"
-        android:layout_below="@+id/bloodPressureEditText"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="5dp"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                app:errorEnabled="true"
+                app:boxBackgroundColor="#EEEDEF"
+                app:hintTextColor="@color/text_field"
+                >
 
-    <EditText
-        android:id="@+id/temperatureEditText"
-        android:layout_width="100dp"
-        android:layout_height="31dp"
-        android:background="@drawable/inputboxwithborders"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/temperatureTextView"
-        android:textSize="10sp"
-        android:textColor="#312d2d"
-        android:layout_marginStart="25dp"
-        android:inputType="numberDecimal"/>
+                <AutoCompleteTextView
+                    android:id="@+id/newAgeACTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Age (years)"
+                    android:ems="10"
+                    android:textSize="18sp"
+                    android:inputType="number"
+                    android:drawableEnd="@drawable/ic_dropdown_icon"/>
+                <!--EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Age"
+                    android:ems="10"
+                    android:textSize="18sp"
+                    android:inputType="textEmailAddress"/-->
 
-    <TextView
-        android:id="@+id/pulseRateTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pulse-Rate (bpm):"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:textColor="#312d2d"
-        android:layout_below="@+id/temperatureEditText"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="5dp"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/pulseRateEditText"
-        android:layout_width="100dp"
-        android:layout_height="31dp"
-        android:background="@drawable/inputboxwithborders"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/pulseRateTextView"
-        android:textSize="10sp"
-        android:textColor="#312d2d"
-        android:layout_marginStart="25dp"
-        android:inputType="number"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                app:errorEnabled="true"
+                app:boxBackgroundColor="#EEEDEF"
+                app:hintTextColor="@color/text_field"
+                >
 
-    <Button
-        android:id="@+id/addPatientButton"
-        android:layout_width="204dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/pulseRateEditText"
-        android:layout_marginTop="15dp"
-        android:backgroundTint="#2598e2"
-        android:layout_centerHorizontal="true"
-        android:text="Add Patient Details" />
+                <AutoCompleteTextView
+                    android:id="@+id/newWeightACTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Weight (kg)"
+                    android:ems="10"
+                    android:textSize="18sp"
+                    android:inputType="numberDecimal"
+                    android:drawableEnd="@drawable/ic_dropdown_icon"/>
+
+                <!--EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Weight (kg)"
+                    android:ems="10"
+                    android:textSize="18sp"
+                    android:inputType="numberDecimal"/-->
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                app:errorEnabled="true"
+                app:boxBackgroundColor="#EEEDEF"
+                app:hintTextColor="@color/text_field"
+                >
+
+                <AutoCompleteTextView
+                    android:id="@+id/newHeightACTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Height (cm)"
+                    android:ems="10"
+                    android:textSize="18sp"
+                    android:inputType="numberDecimal"
+                    android:drawableEnd="@drawable/ic_dropdown_icon"/>
+
+                <!--EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Height (cm)"
+                    android:ems="10"
+                    android:textSize="18sp"
+                    android:inputType="number"/-->
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                app:errorEnabled="true"
+                app:boxBackgroundColor="#EEEDEF"
+                app:hintTextColor="@color/text_field"
+                >
+
+                <AutoCompleteTextView
+                    android:id="@+id/newTempACTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Temperature (°F)"
+                    android:ems="10"
+                    android:textSize="18sp"
+                    android:inputType="numberDecimal"
+                    android:drawableEnd="@drawable/ic_dropdown_icon"/>
+
+                <!--EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Temperature (°F)"
+                    android:ems="10"
+                    android:textSize="18sp"
+                    android:inputType="text"/-->
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                app:errorEnabled="true"
+                app:boxBackgroundColor="#EEEDEF"
+                app:hintTextColor="@color/text_field"
+                >
+
+                <AutoCompleteTextView
+                    android:id="@+id/newPressureACTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="BLood Pressure (mmHg)"
+                    android:ems="10"
+                    android:textSize="18sp"
+                    android:inputType="text"
+                    android:drawableEnd="@drawable/ic_dropdown_icon"/>
+
+                <!--EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Blood Pressure (mmHg)"
+                    android:ems="10"
+                    android:textSize="18sp"
+                    android:inputType="text"/-->
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                app:errorEnabled="true"
+                app:boxBackgroundColor="#EEEDEF"
+                app:hintTextColor="@color/text_field"
+                >
+
+                <AutoCompleteTextView
+                    android:id="@+id/newHeartRateACTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Heart Rate (bpm)"
+                    android:ems="10"
+                    android:textSize="18sp"
+                    android:inputType="number"
+                    android:drawableEnd="@drawable/ic_dropdown_icon"/>
+
+                <!--EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Heart Rate (bpm)"
+                    android:ems="10"
+                    android:textSize="18sp"
+                    android:inputType="text"/-->
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/addPatientButton"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="@string/add_patient"
+                android:textSize="20sp"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/button_design"/>
+
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

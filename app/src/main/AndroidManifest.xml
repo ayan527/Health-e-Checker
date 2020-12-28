@@ -17,9 +17,16 @@
         android:roundIcon="@mipmap/logo_app"
         android:supportsRtl="true"
         android:theme="@style/Theme.HealtheCheckerApp">
-        <activity android:name=".ForgotPasswordActivity"></activity>
-        <activity android:name=".NewProfileActivity" />
-        <activity android:name=".ProfileActivity" />
+        <activity android:name=".PatientActivity"></activity>
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:windowSoftInputMode="adjustPan|adjustResize" />
+        <activity
+            android:name=".NewProfileActivity"
+            android:windowSoftInputMode="adjustPan|adjustResize" />
+        <activity
+            android:name=".ProfileActivity"
+            android:windowSoftInputMode="adjustPan|adjustResize" />
         <activity android:name=".ScannerActivity" />
         <activity android:name=".StartActivity" />
         <activity
@@ -34,8 +41,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity" />
+        <activity
+            android:name=".RegisterActivity"
+            android:windowSoftInputMode="adjustPan|adjustResize" />
+        <activity
+            android:name=".LoginActivity"
+            android:windowSoftInputMode="adjustPan|adjustResize" />
         <activity
             android:name=".MainActivity"
             android:icon="@mipmap/logo_app"

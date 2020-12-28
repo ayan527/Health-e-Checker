@@ -4,40 +4,19 @@ import java.io.Serializable;
 
 public class PatientDetails implements Serializable {
     private String id;
-    private String firstName;
-    private String lastName;
-    private String sex;
+    private String lastNurseId;
+
+    private String fullName;
+    private String mobileNo;
+    private String age;
+    private String gender;
+
     private String bloodPressure;
+    private String height;
 
-    private Integer age;
-    private Double height;
-    private Double temperature;
-    private Integer pulseRate;
-    private Integer weight;
-
-    public String getBloodPressure() {
-        return bloodPressure;
-    }
-
-    public void setBloodPressure(String bloodPressure) {
-        this.bloodPressure = bloodPressure;
-    }
-
-    public Double getTemperature() {
-        return temperature;
-    }
-
-    public void setTemperature(Double temperature) {
-        this.temperature = temperature;
-    }
-
-    public Integer getPulseRate() {
-        return pulseRate;
-    }
-
-    public void setPulseRate(Integer pulseRate) {
-        this.pulseRate = pulseRate;
-    }
+    private String temperature;
+    private String pulseRate;
+    private String weight;
 
     public String getId() {
         return id;
@@ -47,51 +26,83 @@ public class PatientDetails implements Serializable {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getLastNurseId() {
+        return lastNurseId;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setLastNurseId(String lastNurseId) {
+        this.lastNurseId = lastNurseId;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public String getSex() {
-        return sex;
+    public String getMobileNo() {
+        return mobileNo;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setMobileNo(String mobileNo) {
+        this.mobileNo = mobileNo;
     }
 
-    public Integer getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
-    public Double getHeight() {
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getBloodPressure() {
+        return bloodPressure;
+    }
+
+    public void setBloodPressure(String bloodPressure) {
+        this.bloodPressure = bloodPressure;
+    }
+
+    public String getHeight() {
         return height;
     }
 
-    public void setHeight(Double height) {
+    public void setHeight(String height) {
         this.height = height;
     }
 
-    public Integer getWeight() {
+    public String getTemperature() {
+        return temperature;
+    }
+
+    public void setTemperature(String temperature) {
+        this.temperature = temperature;
+    }
+
+    public String getPulseRate() {
+        return pulseRate;
+    }
+
+    public void setPulseRate(String pulseRate) {
+        this.pulseRate = pulseRate;
+    }
+
+    public String getWeight() {
         return weight;
     }
 
-    public void setWeight(Integer weight) {
+    public void setWeight(String weight) {
         this.weight = weight;
     }
 }

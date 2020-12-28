@@ -5,9 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -32,6 +36,8 @@ import java.util.Objects;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "RegisterActivity";
+
+    private Animation button_click;
 
     private EditText registerFullNameEditText;
     private EditText registerMobileNoEditText;
@@ -59,6 +65,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         Log.i(TAG,"onCreate() method called");
 
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+
+        button_click = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.button_click);
+
         registerNurseIdEditText = (EditText) findViewById(R.id.registerNurseIdEditText);
         registerFullNameEditText = (EditText) findViewById(R.id.registerFullNameEditText);
         registerMobileNoEditText = (EditText) findViewById(R.id.registerMobileNoEditText);
@@ -79,65 +89,72 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        String id = registerNurseIdEditText.getText().toString().trim();
-        String fullName = registerFullNameEditText.getText().toString().trim();
-        String mobileNo = registerMobileNoEditText.getText().toString().trim();
-        String emailId = registerEmailIdEditText.getText().toString().trim();
-        String password = registerPasswordEditText.getText().toString().trim();
-        String confirmPassword = registerConfirmPasswordEditText.getText().toString().trim();
+        registerButton.startAnimation(button_click);
 
-        int radioButtonId = registerGenderRadioGroup.getCheckedRadioButtonId();
-        if (radioButtonId == -1) {
-            Toast.makeText(RegisterActivity.this,"Gender is not selected",Toast.LENGTH_SHORT).show();
-            return;
-        } else {
-            registerGenderRadioButton = (RadioButton) findViewById(radioButtonId);
-        }
-        String gender = registerGenderRadioButton.getText().toString().trim();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                String id = registerNurseIdEditText.getText().toString().trim();
+                String fullName = registerFullNameEditText.getText().toString().trim();
+                String mobileNo = registerMobileNoEditText.getText().toString().trim();
+                String emailId = registerEmailIdEditText.getText().toString().trim();
+                String password = registerPasswordEditText.getText().toString().trim();
+                String confirmPassword = registerConfirmPasswordEditText.getText().toString().trim();
 
-        if (TextUtils.isEmpty(id)) {
-            registerNurseIdEditText.setError("Nurse-Id is empty");
-            return;
-        }
+                int radioButtonId = registerGenderRadioGroup.getCheckedRadioButtonId();
+                if (radioButtonId == -1) {
+                    Toast.makeText(RegisterActivity.this,"Gender is not selected",Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    registerGenderRadioButton = (RadioButton) findViewById(radioButtonId);
+                }
+                String gender = registerGenderRadioButton.getText().toString().trim();
 
-        if (TextUtils.isEmpty(fullName)) {
-            registerFullNameEditText.setError("Full Name is empty");
-            return;
-        }
+                if (TextUtils.isEmpty(id)) {
+                    registerNurseIdEditText.setError("Nurse-Id is empty");
+                    return;
+                }
 
-        if (TextUtils.isEmpty(mobileNo)) {
-            registerMobileNoEditText.setError("Mobile No is empty");
-            return;
-        }
+                if (TextUtils.isEmpty(fullName)) {
+                    registerFullNameEditText.setError("Full Name is empty");
+                    return;
+                }
 
-        if (TextUtils.isEmpty(emailId)) {
-            registerEmailIdEditText.setError("Email-Id is empty");
-            return;
-        }
+                if (TextUtils.isEmpty(mobileNo)) {
+                    registerMobileNoEditText.setError("Mobile No is empty");
+                    return;
+                }
 
-        if (TextUtils.isEmpty(password)) {
-            registerPasswordEditText.setError("Password is empty");
-            return;
-        }
+                if (TextUtils.isEmpty(emailId)) {
+                    registerEmailIdEditText.setError("Email-Id is empty");
+                    return;
+                }
 
-        if (TextUtils.isEmpty(confirmPassword)) {
-            registerConfirmPasswordEditText.setError("Confirm Password is empty");
-            return;
-        }
+                if (TextUtils.isEmpty(password)) {
+                    registerPasswordEditText.setError("Password is empty");
+                    return;
+                }
 
-        if (password.length() < 8) {
-            registerPasswordEditText.setError("Minimum 8 characters required");
-            return;
-        }
+                if (TextUtils.isEmpty(confirmPassword)) {
+                    registerConfirmPasswordEditText.setError("Confirm Password is empty");
+                    return;
+                }
 
-        if (! confirmPassword.equals(password)) {
-            registerConfirmPasswordEditText.setError("Password is'nt matching");
-            return;
-        }
+                if (password.length() < 8) {
+                    registerPasswordEditText.setError("Minimum 8 characters required");
+                    return;
+                }
 
-        registerProgressBar.setVisibility(View.VISIBLE);
+                if (! confirmPassword.equals(password)) {
+                    registerConfirmPasswordEditText.setError("Password is'nt matching");
+                    return;
+                }
 
-        checkEmailOrIdPresent(databaseReference,id,fullName,mobileNo,gender,emailId,password);
+                registerProgressBar.setVisibility(View.VISIBLE);
+
+                checkEmailOrIdPresent(databaseReference,id,fullName,mobileNo,gender,emailId,password);
+            }
+        },100);
     }
 
     private void addNurseDetails(String id, String fullName, String mobileNo, String gender, String emailId) {

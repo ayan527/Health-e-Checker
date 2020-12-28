@@ -12,6 +12,8 @@
     <string name="enter_first_name">Enter first name</string>
     <string name="enter_last_name">Enter last name</string>
     <string name="enter_gender">Enter gender</string>
+    <string name="verify">VERIFY</string>
+    <string name="add_patient">Add Patient</string>
     <string-array name="gender_array">
         <item>Male</item>
         <item>Female</item>

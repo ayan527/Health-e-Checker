@@ -53,7 +53,7 @@ public class StartActivity extends AppCompatActivity{
                                     .putExtra("nurse_fullName",nurse.getFullName())
                                     .putExtra("nurse_emailId",nurse.getEmailId())
                                     .putExtra("nurse_gender",nurse.getGender())
-                                    .putExtra("nurse_views",nurse.getViews())
+                                    .putExtra("nurse_views",Integer.toString(nurse.getViews()))
                                     .putExtra("nurse_mobileNo",nurse.getMobileNo()));
                             finish();
                             break;

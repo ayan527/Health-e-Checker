@@ -3,9 +3,11 @@ package com.example.health_e_checkerapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextPaint;
@@ -14,6 +16,10 @@ import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -35,6 +41,8 @@ import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "LoginActivity";
+
+    private Animation button_click;
 
     private EditText loginEmailIdEditText;
     private EditText loginPasswordEditText;
@@ -58,7 +66,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         Log.i(TAG,"onCreate() method called");
 
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+
         firebaseAuth = FirebaseAuth.getInstance();
+
+        button_click = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.button_click);
 
         forgotPasswordTextView = (TextView) findViewById(R.id.forgotPasswordTextView);
         SpannableString ss2 = new SpannableString("Forgot Password?");
@@ -153,38 +165,52 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        String emailId = loginEmailIdEditText.getText().toString().trim();
-        String password = loginPasswordEditText.getText().toString().trim();
 
-        if (TextUtils.isEmpty(emailId)) {
-            loginEmailIdEditText.setError("Email-Id is empty");
-            return;
-        }
+        loginButton.startAnimation(button_click);
 
-        if (TextUtils.isEmpty(password)) {
-            loginPasswordEditText.setError("Password is empty");
-            return;
-        }
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                String emailId = loginEmailIdEditText.getText().toString().trim();
+                String password = loginPasswordEditText.getText().toString().trim();
 
-        if (password.length() < 8) {
-            loginPasswordEditText.setError("Minimum 8 characters required");
-            return;
-        }
+                if (TextUtils.isEmpty(emailId)) {
+                    loginEmailIdEditText.setError("Email-Id is empty");
+                    return;
+                }
 
-        loginProgressBar.setVisibility(View.VISIBLE);
+                if (TextUtils.isEmpty(password)) {
+                    loginPasswordEditText.setError("Password is empty");
+                    return;
+                }
 
-        firebaseAuth.signInWithEmailAndPassword(emailId,password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            verifyEmailAddress(emailId);
-                        } else {
-                            Toast.makeText(LoginActivity.this, "Wrong Email-Id or Password!", Toast.LENGTH_SHORT).show();
-                            Log.d(TAG, "Error : " + Objects.requireNonNull(task.getException()).getMessage());
-                            loginProgressBar.setVisibility(View.GONE);
-                        }
-                    }
-                });
+                if (password.length() < 8) {
+                    loginPasswordEditText.setError("Minimum 8 characters required");
+                    return;
+                }
+
+                loginProgressBar.setVisibility(View.VISIBLE);
+
+                firebaseAuth.signInWithEmailAndPassword(emailId,password)
+                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    verifyEmailAddress(emailId);
+                                } else {
+                                    Toast.makeText(LoginActivity.this, "Wrong Email-Id or Password!", Toast.LENGTH_SHORT).show();
+                                    resetAllFields();
+                                    Log.d(TAG, "Error : " + Objects.requireNonNull(task.getException()).getMessage());
+                                    loginProgressBar.setVisibility(View.GONE);
+                                }
+                            }
+                        });
+            }
+        },100);
+    }
+
+    private void resetAllFields() {
+        loginEmailIdEditText.setText("");
+        loginPasswordEditText.setText("");
     }
 }

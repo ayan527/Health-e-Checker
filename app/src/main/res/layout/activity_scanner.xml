@@ -36,10 +36,13 @@
 
         <Button
             android:id="@+id/scanButton"
+            android:background="@drawable/button_design"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
             android:enabled="false"
             android:text="@string/scan_now"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="60dp"/>
 
     </LinearLayout>
 
