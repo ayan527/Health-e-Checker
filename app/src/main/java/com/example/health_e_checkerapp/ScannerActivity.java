@@ -189,7 +189,6 @@ public class ScannerActivity extends AppCompatActivity {
                     intent.putExtra("patient_id", patientDetails.getId());
                     intent.putExtra("nurse_id", nurse_id);
                     startActivity(intent);
-                    finish();
                 }
             }
 

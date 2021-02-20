@@ -165,7 +165,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         nurseDetails.setMobileNo(mobileNo);
         nurseDetails.setGender(gender);
         nurseDetails.setEmailId(emailId);
-        nurseDetails.setViews(0);
 
         databaseReference.child("nurseDetails").child(nurseDetails.getId()).setValue(nurseDetails);
     }
@@ -249,14 +248,14 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                             });
 
                             //Toast.makeText(RegisterActivity.this, "User Created.", Toast.LENGTH_SHORT).show();
-
-                            startActivity(new Intent(getApplicationContext(),LoginActivity.class));
-                            finish();
                         } else {
                             Toast.makeText(RegisterActivity.this, "Registration not Successful! ", Toast.LENGTH_SHORT).show();
                             Log.d(TAG, "Error : " + Objects.requireNonNull(task.getException()).getMessage());
                             registerProgressBar.setVisibility(View.GONE);
                         }
+
+                        startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+                        finish();
                     }
                 });
     }

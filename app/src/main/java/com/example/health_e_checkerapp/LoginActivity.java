@@ -97,6 +97,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onClick(View textView) {
                 startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+                finish();
             }
             @Override
             public void updateDrawState(TextPaint ds) {
@@ -130,7 +131,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             Toast.makeText(getApplicationContext(),"Please go to your email & verify your account !",Toast.LENGTH_SHORT).show();
             firebaseAuth.signOut();
             loginProgressBar.setVisibility(View.GONE);
-            startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+            startActivity(new Intent(LoginActivity.this,StartActivity.class));
             finish();
         } else {
             Toast.makeText(getApplicationContext(),"Logged in Successfully !",Toast.LENGTH_SHORT).show();
@@ -142,12 +143,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         NurseDetails nurse = snapshot.getValue(NurseDetails.class);
                         if (nurse.getEmailId().equals(emailId)) {
                             loginProgressBar.setVisibility(View.GONE);
-                            startActivity(new Intent(getApplicationContext(),MainActivity.class).putExtra("nurse_id",nurse.getId())
+                            startActivity(new Intent(LoginActivity.this,MainActivity.class).putExtra("nurse_id",nurse.getId())
                                     .putExtra("nurse_id",nurse.getId())
                                     .putExtra("nurse_fullName",nurse.getFullName())
                                     .putExtra("nurse_emailId",nurse.getEmailId())
                                     .putExtra("nurse_gender",nurse.getGender())
-                                    .putExtra("nurse_views",Integer.toString(nurse.getViews()))
                                     .putExtra("nurse_mobileNo",nurse.getMobileNo()));
                             finish();
                             break;

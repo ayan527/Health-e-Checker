@@ -19,6 +19,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
 public class NewProfileActivity extends AppCompatActivity {
@@ -40,6 +43,8 @@ public class NewProfileActivity extends AppCompatActivity {
 
     private Button addPatientButton;
 
+    private String nurse_id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +58,8 @@ public class NewProfileActivity extends AppCompatActivity {
         String patient_id = getIntent.getStringExtra("patient_id");
         newPatientIdEditText = (EditText) findViewById(R.id.newPatientIdEditText);
         newPatientIdEditText.setText(patient_id);
+
+        nurse_id = getIntent.getStringExtra("nurse_id");
 
         generateArrayList();
 
@@ -81,7 +88,8 @@ public class NewProfileActivity extends AppCompatActivity {
                 addPatientDetails(patient_id);
 
                 startActivity(new Intent(NewProfileActivity.this,PatientActivity.class)
-                                .putExtra("patient_id",patient_id));
+                                .putExtra("patient_id",patient_id)
+                                .putExtra("nurse_id",nurse_id));
                 finish();
             }
         });
@@ -173,7 +181,7 @@ public class NewProfileActivity extends AppCompatActivity {
     }
 
     private void addPatientDetails(String patient_id) {
-        newPatientFullNameEditText = (EditText) findViewById(R.id.newPatientIdEditText);
+        newPatientFullNameEditText = (EditText) findViewById(R.id.newPatientFullNameEditText);
         newPatientMobileNoEditText = (EditText) findViewById(R.id.newPatientMobileNoEditText);
         newPatientGenderRadioGroup = (RadioGroup) findViewById(R.id.newPatientGenderRadioGroup);
 
@@ -252,15 +260,6 @@ public class NewProfileActivity extends AppCompatActivity {
         new WriteToDatabaseTask(getApplicationContext()).execute(patientDetails);
 
         Toast.makeText(getApplicationContext(),"Record Added Successfully!",Toast.LENGTH_SHORT).show();
-    }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-
-        Log.i(TAG,"going to ScannerActivity");
-
-        startActivity(new Intent(NewProfileActivity.this,ScannerActivity.class));
-        finish();
     }
 }

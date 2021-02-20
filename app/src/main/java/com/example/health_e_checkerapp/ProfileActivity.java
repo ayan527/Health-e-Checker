@@ -202,7 +202,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String fullName = patientFullNameEditText.getText().toString().trim();
-                String mobileNo = patientFullNameEditText.getText().toString().trim();
+                String mobileNo = patientMobileNoEditText.getText().toString().trim();
                 String gender = patientGenderEditText.getText().toString().trim();
 
                 String age = ageACTV.getText().toString().trim();

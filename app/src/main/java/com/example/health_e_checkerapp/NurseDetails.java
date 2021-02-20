@@ -6,15 +6,6 @@ public class NurseDetails {
     private String mobileNo;
     private String gender;
     private String emailId;
-    private Integer views;
-
-    public Integer getViews() {
-        return views;
-    }
-
-    public void setViews(Integer views) {
-        this.views = views;
-    }
 
     public String getId() {
         return id;

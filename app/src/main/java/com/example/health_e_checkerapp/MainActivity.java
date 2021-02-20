@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView nurseMobileNoTextView;
     private TextView nurseEmailIdTextView;
     private TextView nurseGenderTextView;
-    private TextView nurseViewsTextView;
 
     private Button scannerButton;
     private Button logoutButton;
@@ -49,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         String nurse_gender = getIntent().getStringExtra("nurse_gender");
         String nurse_emailId = getIntent().getStringExtra("nurse_emailId");
         String nurse_mobileNo = getIntent().getStringExtra("nurse_mobileNo");
-        String nurse_views = getIntent().getStringExtra("nurse_views");
 
         /*databaseReference = FirebaseDatabase.getInstance().getReference();
         databaseReference.child("nurseDetails").addValueEventListener(new ValueEventListener() {
@@ -85,14 +83,11 @@ public class MainActivity extends AppCompatActivity {
         nurseGenderTextView = (TextView) findViewById(R.id.nurseGenderTextView);
         nurseGenderTextView.setText(nurse_gender);
 
-        nurseViewsTextView = (TextView) findViewById(R.id.nurseViewsTextView);
-        nurseViewsTextView.setText(nurse_views);
-
         nurseEmailIdTextView = (TextView) findViewById(R.id.nurseEmailIdTextView);
         nurseEmailIdTextView.setText(nurse_emailId);
 
         nurseMobileNoTextView = (TextView) findViewById(R.id.nurseMobileNoTextView);
-        nurseMobileNoTextView.setText(nurse_mobileNo);
+        nurseMobileNoTextView.setText("+91 " +nurse_mobileNo);
 
         scannerButton = (Button) findViewById(R.id.scannerButton);
         scannerButton.setOnClickListener(new View.OnClickListener() {

@@ -32,7 +32,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Shaoni Mukherjee"
+                    android:text="@string/shaoni_mukherjee"
                     android:textColor="#FFFFFF"
                     android:textStyle="bold"
                     android:textSize="20sp"/>
@@ -102,18 +102,15 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Views"
+                            android:text="Logout"
                             android:textSize="20sp"
                             />
-                        <TextView
-                            android:id="@+id/nurseViewsTextView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="10"
-                            android:textStyle="bold"
-                            android:textSize="18sp"
-                            android:paddingTop="10dp"
-                            android:textColor="@color/text_field"/>
+                        <Button
+                            android:id="@+id/logoutButton"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/logout"
+                            android:layout_marginTop="10dp"/>
 
                     </LinearLayout>
                 </LinearLayout>
@@ -176,20 +173,10 @@
         android:text="@string/scanner"
         android:textSize="20sp"
         android:textColor="#FFFFFF"
-        android:layout_above="@+id/logoutButton"
+        android:layout_alignParentBottom="true"
         android:layout_marginBottom="20dp"
         android:layout_centerHorizontal="true"
         android:padding="5dp"
         android:background="@drawable/button_design"/>
-
-    <Button
-        android:id="@+id/logoutButton"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
-        android:background="@drawable/logout"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="15dp"
-        android:layout_marginEnd="25dp"/>
 
 </RelativeLayout>

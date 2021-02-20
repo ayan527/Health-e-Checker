@@ -119,19 +119,10 @@ public class PatientActivity extends AppCompatActivity {
                         startActivity(new Intent(PatientActivity.this,ProfileActivity.class)
                                 .putExtra("patient_id", patient_id)
                                 .putExtra("nurse_id", nurse_id));
+                        finish();
                     }
                 },100);
             }
         });
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-
-        Log.i(TAG,"going to ScannerActivity");
-
-        startActivity(new Intent(PatientActivity.this,ScannerActivity.class));
-        finish();
     }
 }

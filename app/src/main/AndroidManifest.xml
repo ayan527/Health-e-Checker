@@ -20,15 +20,35 @@
         <activity android:name=".PatientActivity"></activity>
         <activity
             android:name=".ForgotPasswordActivity"
-            android:windowSoftInputMode="adjustPan|adjustResize" />
+            android:windowSoftInputMode="adjustPan|adjustResize"
+            android:icon="@mipmap/logo_app"
+            android:logo="@mipmap/logo_app"
+            android:resizeableActivity="false"
+            android:roundIcon="@mipmap/logo_app"/>
         <activity
             android:name=".NewProfileActivity"
-            android:windowSoftInputMode="adjustPan|adjustResize" />
+            android:windowSoftInputMode="adjustPan|adjustResize"
+            android:icon="@mipmap/logo_app"
+            android:logo="@mipmap/logo_app"
+            android:resizeableActivity="false"
+            android:roundIcon="@mipmap/logo_app"/>
         <activity
             android:name=".ProfileActivity"
-            android:windowSoftInputMode="adjustPan|adjustResize" />
-        <activity android:name=".ScannerActivity" />
-        <activity android:name=".StartActivity" />
+            android:windowSoftInputMode="adjustPan|adjustResize"
+            android:icon="@mipmap/logo_app"
+            android:logo="@mipmap/logo_app"
+            android:resizeableActivity="false"
+            android:roundIcon="@mipmap/logo_app"/>
+        <activity android:name=".ScannerActivity"
+            android:icon="@mipmap/logo_app"
+            android:logo="@mipmap/logo_app"
+            android:resizeableActivity="false"
+            android:roundIcon="@mipmap/logo_app"/>
+        <activity android:name=".StartActivity"
+            android:icon="@mipmap/logo_app"
+            android:logo="@mipmap/logo_app"
+            android:resizeableActivity="false"
+            android:roundIcon="@mipmap/logo_app"/>
         <activity
             android:name=".LaunchActivity"
             android:icon="@mipmap/logo_app"
@@ -43,10 +63,18 @@
         </activity>
         <activity
             android:name=".RegisterActivity"
-            android:windowSoftInputMode="adjustPan|adjustResize" />
+            android:windowSoftInputMode="adjustPan|adjustResize"
+            android:icon="@mipmap/logo_app"
+            android:logo="@mipmap/logo_app"
+            android:resizeableActivity="false"
+            android:roundIcon="@mipmap/logo_app"/>
         <activity
             android:name=".LoginActivity"
-            android:windowSoftInputMode="adjustPan|adjustResize" />
+            android:windowSoftInputMode="adjustPan|adjustResize"
+            android:icon="@mipmap/logo_app"
+            android:logo="@mipmap/logo_app"
+            android:resizeableActivity="false"
+            android:roundIcon="@mipmap/logo_app"/>
         <activity
             android:name=".MainActivity"
             android:icon="@mipmap/logo_app"
